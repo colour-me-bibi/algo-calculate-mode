@@ -17,4 +17,7 @@ def calculate_mode(arr):
     if not arr:
         return None
 
-    return Counter(arr).most_common(1)[0][0]
+    counts = Counter(arr)
+    _, max_count = counts.most_common(1)[0]
+
+    return [el for el, count in counts.items() if count == max_count]
